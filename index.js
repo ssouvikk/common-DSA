@@ -1,3 +1,13 @@
+/* Swapping 2 variables value without using 3rd variable */
+let a = 10
+let b = 5
+
+a = a + b; // এখন a = 15
+b = a - b; // এখন b = 15 - 10 = 5
+a = a - b; // এখন a = 15 - 5 = 10
+
+
+
 /* Longest Common Substring (LCS) */
 /* আমাদের দুটি স্ট্রিং দেওয়া আছে, এবং আমাদের কাজ হলো সর্বাধিক বড় সাবস্ট্রিং (Substring) খুঁজে বের করা, যা উভয় স্ট্রিং-এর অংশ। */
 const longestCommonSubstringBruteForce = (s1, s2) => {

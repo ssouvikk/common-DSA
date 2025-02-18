@@ -1,3 +1,20 @@
+/* Longest Common Substring (LCS) */
+/* আমাদের দুটি স্ট্রিং দেওয়া আছে, এবং আমাদের কাজ হলো সর্বাধিক বড় সাবস্ট্রিং (Substring) খুঁজে বের করা, যা উভয় স্ট্রিং-এর অংশ। */
+const longestCommonSubstringBruteForce = (s1, s2) => {
+    let result = ''
+    for (let i = 0; i < s1.length; i++) {
+        for (let j = i; j < s1.length; j++) {
+            const subStr = s1.substring(i, j + 1)
+            if (s2.includes(subStr) && subStr.length > result.length) {
+                result = subStr
+            }
+        }
+    }
+    return result
+}
+
+
+
 /*  LCM (Least Common Multiple) (লসাগু) */
 const findLCM = (a, b) => {
     let max = Math.max(a, b)

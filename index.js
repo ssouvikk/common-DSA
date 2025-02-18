@@ -1,5 +1,16 @@
+/* find the largest element in a nested array */
+const findLargestInNestedArray = arr => {
+    let max = - Infinity
+    arr.forEach(a => {
+        if (Array.isArray(a)) {
+            max = Math.max(max, findLargestInNestedArray(a))
+        } else {
+            max = Math.max(max, a)
+        }
 
-
+    });
+    return max
+}
 
 /* Finding the prime factors and their count */
 const primeFactors = n => {
@@ -10,7 +21,7 @@ const primeFactors = n => {
         while (n % i === 0) {
             factors[i] = (factors[i] || 0) + 1
             //updating n when it is divisible
-            n = n / i       
+            n = n / i
         }
     }
     return factors

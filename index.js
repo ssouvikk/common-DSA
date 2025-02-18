@@ -1,3 +1,12 @@
+/* check if a given number is prime */
+const isPrime = n => {
+    if (n < 2) return false; // ২-এর কম হলে মৌলিক নয়
+    for (let i = 2; i < n / 2; i++) {
+        if (n % i === 0) return false
+    }
+    return true
+}
+
 /* find the largest element in a nested array */
 const findLargestInNestedArray = arr => {
     let max = - Infinity

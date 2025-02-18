@@ -1,3 +1,38 @@
+
+
+
+/* Finding the prime factors and their count */
+const primeFactors = n => {
+    const factors = {}
+    // ২ থেকে শুরু করে n পর্যন্ত চেক করছি (if n = 37, it will return 37 * 1)
+    for (let i = 2; i <= n; i++) {
+        // till it is divisble by i, it will run
+        while (n % i === 0) {
+            factors[i] = (factors[i] || 0) + 1
+            //updating n when it is divisible
+            n = n / i       
+        }
+    }
+    return factors
+}
+/* 
+উদাহরণ:
+60 এর ক্ষেত্রে:
+শুরুতে n = 60।
+i = 2:
+60 % 2 == 0, তাই factors[2] = 1; n = 60 / 2 = 30।
+আবার, 30 % 2 == 0, তাই factors[2] = 2; n = 30 / 2 = 15।
+i = 3:
+15 % 3 == 0, তাই factors[3] = 1; n = 15 / 3 = 5।
+i = 4:
+5 % 4 != 0, কিছু হয় না।
+i = 5:
+5 % 5 == 0, তাই factors[5] = 1; n = 5 / 5 = 1।
+যেহেতু n এখন 1 হয়ে গেছে, লুপ শেষ হয়ে যায়।
+*/
+
+
+
 /* Swapping 2 variables value without using 3rd variable */
 let a = 10
 let b = 5
@@ -43,7 +78,7 @@ const findHCF = (a, b) => {
     }
 }
 
-/* একটি সংখ্যা 2-এর কোনো power কিনা তা কিভাবে নির্ণয় করবো? */
+/* একটি সংখ্যা 2-এর কোনো power কিনা তা কিভাবে নির্ণয় করবো? (power of 2) */
 const isPowerOfTwo = n => {
     if (n <= 0) return false
 

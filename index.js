@@ -1,3 +1,49 @@
+/* deep clone an multi level nested object without using JSON.stringify & JSON.parse */
+const deepClone = (obj) => {
+    if (obj !== null && typeof obj !== 'object') return obj
+    if (Array.isArray(obj)) return obj.map(el => deepClone(el))
+
+    const result = {}
+    for (const key in obj) {
+        if (typeof obj[key] === 'object') {
+            result[key] = deepClone(obj[key])
+        }
+        else {
+            result[key] = obj[key]
+        }
+    }
+    return result
+}
+
+
+
+/* find duplicate elements */
+const findDuplicates = (arr) => {
+    const frequency = {}
+    arr.forEach(el => {
+        frequency[el] = (frequency[el] || 0) + 1
+    })
+    const duplicates = []
+    Object.keys(frequency).forEach(key => {
+        if (frequency[key] > 1) duplicates.push(key)
+    })
+    return duplicates
+}
+
+
+
+/* flat nested array */
+const flattenArray = (arr) => {
+    const result = []
+    arr.forEach(el => {
+        if (Array.isArray(el)) {
+            result.push(...flattenArray(el))
+        } else result.push(el)
+    })
+    return result
+}
+
+
 /* check if a given number is prime */
 const isPrime = n => {
     if (n < 2) return false; // ২-এর কম হলে মৌলিক নয়
